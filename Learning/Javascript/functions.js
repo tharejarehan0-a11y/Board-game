@@ -19,3 +19,26 @@ console.log(multiply(2,2));
 // function multiply(num1,num2){
 //     return product = num1 * num2; this will return undefined as no explicit variable is with return
 // }
+
+const n = multiply;
+
+console.log(n(3,3)) //this shows that functions are objects
+
+function programmer(name){
+    this.name;
+    this.writescode = function(){
+        console.log('codes in js')
+    }
+}
+
+console.log(programmer('Rehan'));
+console.log(programmer.length)
+console.log(programmer.constructor);
+
+const desginer = new function(name){
+    this.name;
+    this.writescode = function(){
+        console.log('yes')
+    }
+}
+desginer.writescode()

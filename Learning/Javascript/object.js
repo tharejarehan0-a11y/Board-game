@@ -46,3 +46,18 @@ const cat = {
 //and we call method like this
 cat.go()
 cat.meow()
+
+//we can access all the keys , values and entries of cat object as follows
+const keys = Object.keys(cat);
+const values = Object.values(cat);
+const entries = Object.entries(cat);
+
+console.log(keys)
+console.log(values)
+console.log(entries)
+
+//Different ways of cloning an Object
+const copyKeys = {};
+Object.assign(copyKeys,cat);
+
+const copyKeysTwo = {...cat};
