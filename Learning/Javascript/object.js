@@ -27,3 +27,22 @@ console.log(course);
 // let property = 'hours';
 
 // console.log(course[property]);
+
+
+// Objects and methods
+
+const cat = {
+    name:'billu',
+    food:'chuhe',
+    breed: 'chitti',
+    meow(){
+        console.log('billu ki meow');
+    },
+    go(){
+        console.log('billu bhag gya');
+    }
+}
+//functions in an objects are called methods like here are meow and go 
+//and we call method like this
+cat.go()
+cat.meow()

@@ -37,3 +37,15 @@ Equality Operators
 === it checks if two values are equal and also data type
 
 */
+
+//Logical Operators
+/*
+|| logical OR returns true even if one is true
+&& logical AND returns true only if both are true
+! Not returns the inverse
+*/
+
+//Operator Precedence
+/*
+BODMAS and left to right
+*/
