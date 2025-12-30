@@ -50,4 +50,7 @@ console.log(uppercaseChars);
 
 //reduce method
 const numbers4 = [1,23,53,645,453452];
-let sum = 0
+const sum = numbers4.reduce((accumulator, currentvalue)=>{
+    return accumulator + currentvalue;
+}, 0);
+console.log(sum);

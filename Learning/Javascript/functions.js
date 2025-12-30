@@ -10,7 +10,7 @@ function sayHi(name){
 // it allows us to reuse our code again and again
 sayHi('Rehan');
 
-function multiply(num1,num2){
+function multiply(num1,num2){//This will be hoisted to the top
     return num1 * num2;
 }
 
@@ -35,10 +35,38 @@ console.log(programmer('Rehan'));
 console.log(programmer.length)
 console.log(programmer.constructor);
 
-const desginer = new function(name){
+const desginer = new function(name){// This will not be hoisted to the top
     this.name;
     this.writescode = function(){
         console.log('yes')
     }
 }
 desginer.writescode()
+
+//arguments keyword can be logged to get an object with all the parameters passed it lacks map and reduce
+
+//the rest operator
+let course = {
+    name:'Javascript for Beginners',
+    duration:'3 hours'
+}
+
+let newCourse = {
+    ...course,//spread operator allows us to copy an object
+    name:'Javascript Adv'
+};
+console.log(newCourse);
+
+function product(...args/*this is the rest operator that allows us to intake variable number of parameters in a function*/){
+    return args.reduce((a,v)=>{
+        return a*v;
+    },1)
+}
+console.log(product(1,34,646,534,3453));
+
+function writeCode(language='Javascript',tool='vscode'/*here we have defined default values */){
+    console.log(`write code in ${language} in ${tool}`);
+}
+writeCode('Javascript');
+writeCode('C#');
+writeCode();//it will return undefined so we will define a default value
