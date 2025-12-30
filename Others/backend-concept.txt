@@ -1,0 +1,64 @@
+#  How to setup a backend
+1. first create a folder
+2. create two folders backend and frontend (backend for all the backend files and frontend for all the frontend files)
+3. in the terminal change the directory to the folder containing the folders backend and frontend 
+4. now in the terminal write npm init
+5. answer all the set of questions
+6. if you are ok with the thing just click enter 
+7. test command let it be as it is
+8. let the keywords be as it is
+9. now a package.json file will be created
+10. it will contain all the answers we gave in terminal 
+11. Now we will first connect to a mongoDB Atlas
+12. for it go to MongoDB Atlas website
+13. login or sign up
+14. create and name the project
+15. create a cluster 
+16. select the nearest region
+17. u will get a window with a username and password 
+18. copy it and create a database username
+19. choose the connection method compass
+18. copy the uri
+19. create a file in the root folder named .env (it stores all you enviornment variables these are secrets so these don't get pushed to github)
+20. In it write MONGODB_URI = the uri you copied
+21. go to database access and edit the password
+22. copy the password and replace it in the .env file 
+23. now create a src folder in it create another folder config
+24. in the config folder create the constants.js
+25. in the .env file specify "type":"module";
+26. from the constants.js export eh database name in a variable
+27. create a app.js in src folder not config folder
+28. import the express app in app.js anything that is not installed can be installed using npm i <dependency name>
+29. this will now be added to to package.json in dependencies
+28. you will also see that node_modules and package-lock.json are created
+29. to hide node_modules and .env u need to create .gitignore
+30. go to browser search for .gitigonre generator and generate for node and copy and paste in the .gitigonre file created by you in the root folder
+31. this will prevent to push the important files to github
+32. in the app.js define constant app with express(); and export the constant as default
+33. Now create database.js in the config folder this will connect to the mongodb database
+34. import mongoose in it from mongoose it talks to mongodb
+35. for it also install mongoose by npm
+36. make a constant connectDB with an async function
+37. in the function define try and catch blocks
+38. in the try define a constant  connectionInstance with await mongooose.connect(`${process.env.MONGODB_URI}`)
+39. now console.log(`mongoose connected ${connectionInstance.connection.host}`) with it you will come to know if it is connected to the mongo database
+40. in the catch write console.log(`MonogDB connection failed ${error}`); and then process.exit(1); this will exit the whole process and tell its all done
+41. to use it export default connectDB
+42. now in the src folder create index.js which will start the Server
+43. in it import dotenv from dotenv you need to install from npm it helps us to extract all the enviornment variables
+44. write dotenv.config({
+    path: './.env' this will let dotenv know that from which file do you need the enviornment variables
+});
+45. make another constant as start server with async function and try and catch in it
+46. in try await for connectDB(); after importing it
+47. then write app.on('error',(error)=>{
+    console.log("ERROR",error);
+    throw error;
+}); starts the app
+48. then you write app.listen(process.env.PORT || 8000 , ()=>{
+    console.log("server is running on port" + process.env.PORT);
+}) defines a port where it works if not available go to 8000 port
+49. in the .env file write PORT = 4000 or any other
+50. in catch write console.log("faild"+error);
+51. write StartServer();
+52. in the package.json file change the scripts to "start":"node src/index.js"
