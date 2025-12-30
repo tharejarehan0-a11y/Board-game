@@ -61,4 +61,6 @@
 49. in the .env file write PORT = 4000 or any other
 50. in catch write console.log("faild"+error);
 51. write StartServer();
-52. in the package.json file change the scripts to "start":"node src/index.js"
+52. in the package.json file change the scripts to "start":"node src/index.js", "dev":"nodemon src/index.js"
+53. install nodemon
+
