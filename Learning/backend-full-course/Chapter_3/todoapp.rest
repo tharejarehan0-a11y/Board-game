@@ -1,0 +1,28 @@
+### GET /
+GET http://localhost:5000
+
+### LOGIN
+POST http://localhost:5000/auth/login
+Content-Type: application/json
+
+{
+    "username":"rehan",
+    "password":"12341234"
+}
+
+### REGISTER
+POST http://localhost:5000/auth/register
+Content-Type: application/json
+
+{
+    "username":"rehan",
+    "password":"12341234"
+}
+
+### MAKE A TODO
+
+
+### UPDATE A TODO
+
+
+### DELETE A TODO

@@ -4,10 +4,10 @@ const express = require('express');//imports everything from express to the expr
 const app = express();//creates a backend application
 const PORT = 8383;  //it is a place in ip address
 
-let data={
-    name:'james',
-    job:'Developer'
-}
+let data=['james'];
+
+//Middleware
+app.use(express.json());
 
 //HTTP verbs and Routes
 
@@ -18,13 +18,20 @@ app.get('/',(req,res)=>{
     res.send(`
         <body>
         <p> ${JSON.stringify(data)} </p>
+        <a href = "/dashboard">DashBoard</a>
         </body>
+        <script>console.log('this is my script');</script>
         `);
 });
 
 app.get('/dashboard',(req,res)=>{
     console.log("This is the dashboard");
-    res.send('<h1>This is a dashboard</h1><input/>');
+    res.send(`
+        <body>
+        <h1>This is a dashboard</h1><input/>
+        <a href="/">Home</a>
+        </body>
+        `);
 })
 
 //api endpoints
@@ -33,6 +40,21 @@ app.get('/api/data',(req,res)=>{
     res.send(data);
 })
 // CRUD = CREATE-post READ-get UPDATE-put and DELETE-delete 
+app.post('/api/data',(req,res)=>{
+    //someone wants to create a user 
+    //the user clicks a sign up button after entering their credentials, and theri browser is wired up to send out a netwark request to the server to handle that action
+    const newEntry = req.body
+    console.log(newEntry);
+    data.push(newEntry.name);
+    res.sendStatus(201);
+});
+app.delete('/api/data',(req,res)=>{
+    data.pop();
+    console.log('we deleted the last peice of the array');
+    res.sendStatus(203);
+})
 app.listen(PORT,()=>{
     console.log(`Server has started on the port ${PORT}`);
 });//it listens to incoming requests
+
+
