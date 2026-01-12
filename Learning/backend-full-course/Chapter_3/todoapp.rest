@@ -2,7 +2,7 @@
 GET http://localhost:5000
 
 ### LOGIN
-POST http://localhost:5000/auth/login
+POST http://localhost:5003/auth/login
 Content-Type: application/json
 
 {
@@ -11,7 +11,7 @@ Content-Type: application/json
 }
 
 ### REGISTER
-POST http://localhost:5000/auth/register
+POST http://localhost:5003/auth/register
 Content-Type: application/json
 
 {
